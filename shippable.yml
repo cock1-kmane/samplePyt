@@ -30,3 +30,4 @@ build:
  
   ci:
     - python --version
+    - sleep 11m
