@@ -16,4 +16,5 @@ python:
 build:
   ci:
     - python --version
-    - if [ "$SHIPPABLE_PYTHON_VERSION" == "3.2" ]; then foobar; fi
+    - sleep 5m
+   # - if [ "$SHIPPABLE_PYTHON_VERSION" == "3.2" ]; then foobar; fi
