@@ -7,11 +7,11 @@ python:
   - 2.6
   - 2.7
   - 3.2
-  - 3.3
-  - 3.4
-  - 3.5
-  - pypy
-  - ppy3
+  #- 3.3
+  #- 3.4
+  #- 3.5
+  #- pypy
+  #- ppy3
   
 build:
   pre_ci_boot:
@@ -21,3 +21,4 @@ build:
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
   ci:
     - python --version
+    - sleep 5m
