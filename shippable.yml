@@ -16,4 +16,4 @@ python:
 build:
   ci:
     - python --version
-    - sleep 5m
+   # - sleep 5m
