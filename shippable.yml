@@ -4,23 +4,23 @@ language: python
 
 # Version number
 python:
-  - 2.6
-  - 2.7
-  - 3.2
+ # - 2.6
+ # - 2.7
+ # - 3.2
   - 3.3
-  - 3.4
-  - 3.5
-  - pypy  
-  - ppy3
+  #- 3.4
+  #- 3.5
+  #- pypy  
+ # - ppy3
 
 build:
-  pre_ci:
-    - docker build -t=shippabledocker/shiphitchcock1_sample_pyt_unofficial .
+ # pre_ci:
+ #   - docker build -t=shippabledocker/shiphitchcock1_sample_pyt_unofficial:$BRANCH.$BUILD_NUMBER .
 
   pre_ci_boot:
-    image_name: shippabledocker/shiphitchcock1_sample_pyt_unofficial
-    image_tag: latest
-    pull: false
+    image_name: drydock/u12pytall
+    image_tag: prod
+    pull: true
     
   ci:
     - python --version  
@@ -28,7 +28,8 @@ build:
    # - ls -al 
 
   post_ci:
-    - docker push shippabledocker/shiphitchcock1_sample_pyt_unofficial
+    - docker build -t=shippabledocker/shiphitchcock1_sample_pyt_unofficial:$BRANCH.$BUILD_NUMBER .
+    - docker push shippabledocker/shiphitchcock1_sample_pyt_unofficial:$BRANCH.$BUILD_NUMBER
 
 integrations:
   hub:
