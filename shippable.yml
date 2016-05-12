@@ -10,10 +10,18 @@ python:
 #  - 3.3
 #  - 3.4
   - 3.5
-  - pypy  
-  - ppy3
+ # - pypy  
+  #- ppy3
 
 build:
   ci:
     - python --version
    # - sleep 5m
+   
+integrations:
+ notifications:
+  - integrationName: issues-samplePyt
+    type: webhook
+    payload:
+     - title=Failure - $REPO_FULL_NAME - $BUILD_NUMBER
+     - body=Shippable Run $BUILD_NUMBER ($BUILD_URL) failed for $COMPARE_URL
